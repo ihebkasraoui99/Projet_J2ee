@@ -1,15 +1,17 @@
 package com.users;
 
-import java.io.Serializable;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
-
-@Entity
-public class Utilisateur implements Serializable {
+import jakarta.persistence.InheritanceType;
+	@Entity
+	@Inheritance(strategy=InheritanceType.JOINED)
+	@DiscriminatorColumn(name="utilisateur_type")
+public abstract class Utilisateur  {
 	private int idUtilisateur;
 	private String email;
 	private String password;
@@ -46,6 +48,19 @@ public class Utilisateur implements Serializable {
 	}
 
 	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public Utilisateur() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Utilisateur(int idUtilisateur, String email, String password, boolean active) {
+		super();
+		this.idUtilisateur = idUtilisateur;
+		this.email = email;
+		this.password = password;
 		this.active = active;
 	}
 
