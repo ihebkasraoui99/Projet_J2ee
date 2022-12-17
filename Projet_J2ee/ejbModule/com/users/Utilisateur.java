@@ -64,9 +64,8 @@ public abstract class Utilisateur  {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Utilisateur(int idUtilisateur, String email, String password, boolean active) {
+	public Utilisateur(String email, String password, boolean active) {
 		super();
-		this.idUtilisateur = idUtilisateur;
 		this.email = email;
 		this.password = password;
 		this.active = active;

@@ -10,22 +10,20 @@ import jakarta.persistence.Persistence;
 
 
 @Entity
-@DiscriminatorValue("A")
+@DiscriminatorValue("admin")
 public class Administration extends Utilisateur{
 
-	public Administration() {
-		super();
-		// TODO Auto-generated constructor stub
+	public Administration(String email,String password, boolean active) {
+		super(email,password,active);
+		
 	}
-	public void add_etudiant(Etudiant e)
+	public void activerCompte(Etudiant etd)
 	{
-		EntityManagerFactory Emf=  Persistence.createEntityManagerFactory("Projet_J2ee");
-		EntityManager Em = Emf.createEntityManager();
-		EntityTransaction Et= Em.getTransaction();
-		Em.persist(e);
-		Et.commit();
-		Em.close();
-		Emf.close();
+		etd.setActive(true);
+	}
+	public void desactiverCompte(Etudiant etd)
+	{
+		etd.setActive(false);
 	}
 
 }
