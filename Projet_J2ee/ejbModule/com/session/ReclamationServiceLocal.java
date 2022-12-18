@@ -7,6 +7,7 @@ import com.users.Reclamation;
 import com.users.TypeReclamation;
 
 import jakarta.ejb.Local;
+
 @Local
 public interface ReclamationServiceLocal {
 	void ajouterReclamation(Reclamation reclamation);
@@ -18,6 +19,8 @@ public interface ReclamationServiceLocal {
 	List<TypeReclamation> listerTypeReclamations();
 
 	boolean existeTypeReclalamtion(String type);
+
+	TypeReclamation chercherTypeReclamationParType(String type);
 
 	List<Reclamation> listerReclamationParEtudiant(Etudiant etudiant);
 

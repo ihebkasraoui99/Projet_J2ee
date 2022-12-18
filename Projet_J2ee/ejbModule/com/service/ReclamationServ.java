@@ -48,4 +48,16 @@ public class ReclamationServ {
 	public boolean existeTypeReclalamtion(@WebParam String type) {
 		return metier.existeTypeReclalamtion(type);
 	}
+
+	@WebMethod
+	public TypeReclamation chercherTypeReclamationParType(@WebParam String type) {
+
+		return metier.chercherTypeReclamationParType(type);
+	}
+
+	@WebMethod
+	public List<Reclamation> listerReclamationParEtudiant(@WebParam Etudiant etudiant) {
+
+		return metier.listerReclamationParEtudiant(etudiant);
+	}
 }
