@@ -32,5 +32,13 @@ public Etudiant(String nom, String prenom,String email,String password, boolean 
 	this.nom = nom;
 	this.prenom = prenom;
 }
+public Etudiant() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+public Etudiant(String email, String password, boolean active) {
+	super(email, password, active);
+	// TODO Auto-generated constructor stub
+}
 
 }

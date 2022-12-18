@@ -2,7 +2,6 @@ package com.session;
 
 import java.util.List;
 
-import com.users.Administration;
 import com.users.Etudiant;
 import com.users.Utilisateur;
 
@@ -21,13 +20,13 @@ public class AuthentificationServiceImpl implements AuthentificationServiceLocal
 		if(!existeEmail(login))
 			return null;
 		else;
-			Query req=em.createQuery("select u from UTILISATEUR u where u.email=login , u.password=pwd");
+			Query req=em.createQuery("select u from UTILISATEUR u where u.email=login , u.password=pwd").setParameter("login", login).setParameter("pwd", pwd);
 			return (Utilisateur) req.getSingleResult();
 	}
 
 	@Override
 	public boolean existeEmail(String login) {
-		 Query query = em.createQuery("select u from UTILISATEUR u where u.email=login ");
+		 Query query = em.createQuery("select u from UTILISATEUR u where u.email=login ").setParameter("login", login);
 		    Utilisateur utl = (Utilisateur) query.getSingleResult();
 		    if (utl != null) {
 		      return true;
@@ -50,7 +49,7 @@ public class AuthentificationServiceImpl implements AuthentificationServiceLocal
 	
 	public Etudiant recherherEtudiant(String nom,String prenom)
 	{
-		Query req=em.createQuery("select etd from Etudiant etd where etd.nom=nom");
+		Query req=em.createQuery("select etd from Etudiant etd where etd.nom= :nom AND  etd.prenom= :prenom").setParameter("nom", nom).setParameter("prenom", prenom);
 		Etudiant etd=(Etudiant)req.getSingleResult();
 		return etd;
 	}

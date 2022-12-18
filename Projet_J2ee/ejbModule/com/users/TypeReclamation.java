@@ -31,4 +31,15 @@ public String getType() {
 public void setType(String type) {
 	this.type = type;
 }
+public TypeReclamation(String type) {
+	super();
+	this.type = type;
+
+}
+public TypeReclamation() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+
 }

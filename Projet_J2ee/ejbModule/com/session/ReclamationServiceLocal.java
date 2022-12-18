@@ -10,10 +10,15 @@ import jakarta.ejb.Local;
 @Local
 public interface ReclamationServiceLocal {
 	void ajouterReclamation(Reclamation reclamation);
+
 	void ajouterTypeReclamation(TypeReclamation typeReclamation);
+
 	List<Reclamation> listerReclamations();
+
 	List<TypeReclamation> listerTypeReclamations();
+
 	boolean existeTypeReclalamtion(String type);
+
 	List<Reclamation> listerReclamationParEtudiant(Etudiant etudiant);
 
 }

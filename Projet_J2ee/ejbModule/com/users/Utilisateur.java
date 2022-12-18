@@ -24,6 +24,7 @@ public abstract class Utilisateur  {
 	
 	private String email;
 	private String password;
+	@Column(nullable = false, columnDefinition = "TINYINT(1)")
 	private boolean active;
 
 

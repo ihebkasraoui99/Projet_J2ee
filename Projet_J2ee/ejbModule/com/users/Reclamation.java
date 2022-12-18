@@ -32,5 +32,15 @@ public class Reclamation {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public Reclamation(String titre, String description) {
+		super();
+		
+		this.titre = titre;
+		this.description = description;
+	}
+	public Reclamation() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 }
